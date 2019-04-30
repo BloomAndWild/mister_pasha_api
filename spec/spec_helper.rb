@@ -1,13 +1,27 @@
+require "pry"
+require "dotenv"
+require "vcr"
+
 require "bundler/setup"
 require "mister_pasha_api"
 
+require_relative 'support/helpers/client_helper'
+
+Dotenv.load
+
+VCR.configure do |c|
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.ignore_localhost                        = true
+  c.cassette_library_dir                    = 'spec/support/fixtures/vcr_cassettes'
+  c.allow_http_connections_when_no_cassette = true
+  c.default_cassette_options                = { match_requests_on: [:uri] }
+end
+
 RSpec.configure do |config|
-  # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
-
-  # Disable RSpec exposing methods globally on `Module` and `main`
-  config.disable_monkey_patching!
-
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end

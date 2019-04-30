@@ -20,7 +20,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "faraday"
+
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "dotenv-rails", "2.7.2"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "webmock", "3.5.1"
+  spec.add_development_dependency "vcr", "~> 4.0"
 end
