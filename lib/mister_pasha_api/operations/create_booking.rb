@@ -33,8 +33,6 @@ module MisterPashaApi
           cmd_num_colis: "",
           cmd_poids: "",
           cmd_transporteur: "",
-          dest_addr_3: "",
-          dest_addr_4: "",
         }
       end
 
