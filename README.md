@@ -39,24 +39,48 @@ end
 
 ```
 MisterPashaApi::Operations::CreateBooking.new(
-  delivery_id: "insert value", # unique delivery identifier
-  shipping_date: "insert value", # shipping date
-  first_name: "insert value", # recipient's first name
-  last_name: "insert value", # recipient's last name
-  email: "insert value", # recipient's email
-  phone: "insert value", # recipient's phone
-  address_line1: "insert value", # recipient's address line 1
-  address_line2: "insert value", # recipient's address line 2
-  postcode: "insert value", # recipient's address postcode
-  city: "insert value", # recipient's address city
-  company_name: "insert value", # name of your company
+  params: {
+    delivery_id: "insert value", # unique delivery identifier
+    shipping_date: "insert value", # shipping date
+    first_name: "insert value", # recipient's first name
+    last_name: "insert value", # recipient's last name
+    email: "insert value", # recipient's email
+    phone: "insert value", # recipient's phone
+    address_line1: "insert value", # recipient's address line 1
+    address_line2: "insert value", # recipient's address line 2
+    postcode: "insert value", # recipient's address postcode
+    city: "insert value", # recipient's address city
+    company_name: "insert value", # name of your company
+  }
 ).execute
 ```
 
-The above operation will return the hash with parcel ID.
+The above operation will return the hash with parcel ID:
 
 ```
 { parcel_id: xxxxx }
+```
+
+### Track delivery
+
+```
+MisterPashaApi::Operations::TrackDelivery.new(
+  params: {
+    parcel_reference: "insert value", # delivery ID / parcel ID can be used.
+  }
+).execute
+```
+
+The above operation will return the hash with status information:
+
+```
+{
+  status_code: "X", # status code between 1 and 14
+  status_message: "Y", # explanatory message if status is 11, 12, 13, 14
+  additional_status_details: "Z", # array with additional status details
+  identification_number: "W", # identification number of Mister Pasha parcel
+  tracking_number: "V", # parcel carrier identifier
+}
 ```
 
 ## Contributing

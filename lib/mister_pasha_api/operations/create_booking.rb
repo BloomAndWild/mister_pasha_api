@@ -38,6 +38,10 @@ module MisterPashaApi
 
       private
 
+      def transaction_number
+        "#{params_object.delivery_id}#{Time.now.to_i}"
+      end
+
       def transformed_response body
         { parcel_id: body["id_colis"] }
       end

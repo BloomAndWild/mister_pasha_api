@@ -39,7 +39,7 @@ module MisterPashaApi
     end
 
     def transaction_number
-      "#{params_object.delivery_id}#{Time.now.to_i}"
+      "#{Time.now.to_i}"
     end
 
     def base_url
