@@ -83,6 +83,24 @@ The above operation will return the hash with status information:
 }
 ```
 
+### Cancel booking
+
+```
+MisterPashaApi::Operations::CancelBooking.new(
+  params: {
+    parcel_reference: "insert value", # delivery ID / parcel ID can be used.
+  }
+).execute
+```
+
+The above operation will return the hash with status information:
+
+```
+{
+  completed: "true"
+}
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mister_pasha_api.
