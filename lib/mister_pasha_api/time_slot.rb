@@ -11,9 +11,9 @@ module MisterPashaApi
       "2" => GREEN,
     }
 
-    def initialize slot, delivery_time
+    def initialize slot, delivery_date
       @slot = slot
-      @delivery_time = delivery_time
+      @delivery_date = delivery_date
     end
 
     def state
@@ -21,13 +21,13 @@ module MisterPashaApi
     end
 
     def local_start_time
-      DateTime.parse(delivery_time).in_time_zone(PARIS_TIME_ZONE).change(
+      DateTime.parse(delivery_date).in_time_zone(PARIS_TIME_ZONE).change(
         hour: slot[0..1], min: slot[3..4], sec: 0
       )
     end
 
     def local_end_time
-      DateTime.parse(delivery_time).in_time_zone(PARIS_TIME_ZONE).change(
+      DateTime.parse(delivery_date).in_time_zone(PARIS_TIME_ZONE).change(
         hour: slot[6..7], min: slot[9..10], sec: 0
       )
     end
@@ -37,6 +37,6 @@ module MisterPashaApi
     end
 
     private
-    attr_reader :slot, :delivery_time
+    attr_reader :slot, :delivery_date
   end
 end
