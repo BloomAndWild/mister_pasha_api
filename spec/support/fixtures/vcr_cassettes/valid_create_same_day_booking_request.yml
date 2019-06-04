@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    # clef was cleared
+    uri: https://ws.misterpasha.com/recette/modules/LteWebService/E-com/Colis.php?action=NouvelleCommande&clef=&cmd_creneau_liv=20h00-21h00&cmd_date_exp=20190604&cmd_date_liv=20190604&cmd_nom_cmd=Bloom%20and%20Wild&cmd_num_colis=&cmd_poids=&cmd_ref_cmd=3347416&cmd_ref_prod=&cmd_ref_transporteur=&cmd_transporteur=&dest_addr_1=Champ%20de%20Mars&dest_addr_2=5%20Avenue%20Anatole&dest_addr_3=&dest_addr_4=&dest_cp=75007&dest_email=misterpasha@bloomandwild.com&dest_nom=Testy&dest_prenom=Mr&dest_tel=0975186067&dest_ville=Paris&transaction=33474161559645494&type=e-com&version=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 04 Jun 2019 10:50:54 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) OpenSSL/1.0.1e-fips PHP/5.4.16
+      X-Powered-By:
+      - PHP/5.4.16
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,OPTIONS
+      Access-Control-Allow-Headers:
+      - x-requested-with
+      Content-Length:
+      - '18'
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"id_colis":20000}'
+    http_version:
+  recorded_at: Tue, 04 Jun 2019 10:51:34 GMT
+recorded_with: VCR 4.0.0
