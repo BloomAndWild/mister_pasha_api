@@ -25,11 +25,11 @@ module MisterPashaApi
           dest_addr_4: params_object.address_line4 || "",
           dest_cp: params_object.postcode,
           dest_ville: params_object.city,
+          cmd_date_liv: delivery_date,
+          cmd_creneau_liv: params_object.time_slot_reference || "",
           # API requires to pass all the attributes even if they are not used.
           cmd_ref_transporteur: "",
           cmd_ref_prod: "",
-          cmd_date_liv: "",
-          cmd_creneau_liv: "",
           cmd_num_colis: "",
           cmd_poids: "",
           cmd_transporteur: "",
@@ -37,6 +37,11 @@ module MisterPashaApi
       end
 
       private
+
+      def delivery_date
+        params_object.delivery_date ?
+          Date.parse(params_object.delivery_date).strftime("%Y%m%d") : ""
+      end
 
       def transaction_number
         "#{params_object.delivery_id}#{Time.now.to_i}"

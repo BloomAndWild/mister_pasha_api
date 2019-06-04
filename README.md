@@ -35,6 +35,29 @@ config.logger = logger
 end
 ```
 
+### Fetch time slots
+
+```
+MisterPashaApi::Operations::FetchTimeSlots.new(
+  params: {
+    postcode: "insert value", # recipient's address postcode
+    start_date: "insert value", # start date of time slot range. Ex "2019-06-03".
+    end_date: "insert value", # end date of time slot range.Ex "2019-06-04".
+  }
+).execute
+```
+
+The above operation will return array of `TimeSlot` objects.
+
+TimeSlot object support these public methods:
+
+- "slot" - original slot. Ex: "19h00-20h00-0".
+- "reference" - slot reference required to book same day delivery. Ex: "19h00-20h00".
+- "delivery_date" - date of delivery.
+- "local_start_time" - start time of slot (parsed to french time zone).
+- "local_end_time" - end time of slot (parsed to french time zone).
+- "state" - one of three states: "available", "unavailable", "green".
+
 ### Book delivery
 
 ```
@@ -51,6 +74,8 @@ MisterPashaApi::Operations::CreateBooking.new(
     postcode: "insert value", # recipient's address postcode
     city: "insert value", # recipient's address city
     company_name: "insert value", # name of your company
+    delivery_date: "insert value", # delivery date (required for same day delivery)
+    time_slot_reference: "insert value", # reference to their time slot (required for same day delivery)
   }
 ).execute
 ```
