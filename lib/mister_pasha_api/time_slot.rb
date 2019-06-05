@@ -11,6 +11,8 @@ module MisterPashaApi
       "2" => GREEN,
     }
 
+    attr_reader :slot, :delivery_date
+
     def initialize slot, delivery_date
       @slot = slot
       @delivery_date = delivery_date
@@ -35,8 +37,5 @@ module MisterPashaApi
     def reference
       slot[0..10]
     end
-
-    private
-    attr_reader :slot, :delivery_date
   end
 end
