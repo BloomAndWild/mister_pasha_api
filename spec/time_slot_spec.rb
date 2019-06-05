@@ -12,6 +12,16 @@ describe MisterPashaApi::TimeSlot do
         "2019-06-03 18:00:00 +0200"
       )
     end
+
+    context "with last time slot" do
+      let(:slot) { "23h00-00h00-1" }
+
+      it "returns correct time slot starting time" do
+        expect(subject.local_start_time.to_s).to eq(
+          "2019-06-03 23:00:00 +0200"
+        )
+      end
+    end
   end
 
   describe "#local_end_time" do
@@ -19,6 +29,16 @@ describe MisterPashaApi::TimeSlot do
       expect(subject.local_end_time.to_s).to eq(
         "2019-06-03 19:00:00 +0200"
       )
+    end
+
+    context "with last time slot" do
+      let(:slot) { "23h00-00h00-1" }
+
+      it "returns correct time slot ending time" do
+        expect(subject.local_end_time.to_s).to eq(
+          "2019-06-04 00:00:00 +0200"
+        )
+      end
     end
   end
 
