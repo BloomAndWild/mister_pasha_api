@@ -15,8 +15,8 @@ module MisterPashaApi
           clef: api_key,
           transaction: transaction_number,
           code_postal: params_object.postcode,
-          date_debut: Date.parse(params_object.start_date).strftime("%Y%m%d"),
-          date_fin: Date.parse(params_object.end_date).strftime("%Y%m%d"),
+          date_debut: params_object.start_date.to_date.strftime("%Y%m%d"),
+          date_fin: params_object.end_date.to_date.strftime("%Y%m%d"),
           heure_debut: "",
         }
       end

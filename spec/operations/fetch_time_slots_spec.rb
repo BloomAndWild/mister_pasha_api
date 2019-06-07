@@ -11,8 +11,8 @@ describe MisterPashaApi::Operations::FetchTimeSlots do
 
     let(:transaction_number) { 1559566219 }
 
-    let(:start_date) { "2019-06-03" }
-    let(:end_date) { "2019-06-04" }
+    let(:start_date) { "2019-06-03".to_date }
+    let(:end_date) { "2019-06-04".to_date }
 
     let(:params) do
       {
