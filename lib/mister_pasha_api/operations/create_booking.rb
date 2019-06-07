@@ -14,7 +14,7 @@ module MisterPashaApi
           transaction: transaction_number,
           cmd_ref_cmd: params_object.delivery_id,
           cmd_nom_cmd: params_object.company_name,
-          cmd_date_exp: Date.parse(params_object.shipping_date).strftime("%Y%m%d"),
+          cmd_date_exp: params_object.shipping_date.to_date.strftime("%Y%m%d"),
           dest_nom: params_object.last_name,
           dest_prenom: params_object.first_name,
           dest_email: params_object.email,
