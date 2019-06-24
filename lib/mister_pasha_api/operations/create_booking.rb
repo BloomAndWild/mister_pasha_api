@@ -27,9 +27,9 @@ module MisterPashaApi
           dest_ville: params_object.city,
           cmd_date_liv: delivery_date,
           cmd_creneau_liv: params_object.time_slot_reference || "",
+          cmd_ref_prod: params_object.product_reference || "",
           # API requires to pass all the attributes even if they are not used.
           cmd_ref_transporteur: "",
-          cmd_ref_prod: "",
           cmd_num_colis: "",
           cmd_poids: "",
           cmd_transporteur: "",
